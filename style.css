@@ -1,4 +1,4 @@
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,14 +6,28 @@
     list-style: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body {
+    background-color:white;
+    color:black;
+    align-content: center;
+}
+
 h1, h2 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, Trebuchet MS, sans-serif;
     font-size: 25px;
     font-weight: bolder;
 }
 
-h3, h4, h5 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+h3, h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, Trebuchet MS, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+h5 {
+    margin-top: 20px;
+    font-family: Gill Sans, Gill Sans MT, Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     font-weight: 900;
 }
@@ -22,6 +36,14 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-style: normal;
+    padding-top:10px;
+    padding-bottom:10px;
+    
+    .footerp {
+        text-align: center; 
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
 @font-face {
     font-family: Roboto;
@@ -31,10 +53,9 @@ p {
 /* NEW INDEX STYLE GALLERY SECTION */
 .image-gallery1 {
     position: absolute;
-    /* top: 0;
-    left: 0; */
+    /* margin-top: 10%; */
     width: 100%;
-    height: 60%;
+    height: 55%;
     overflow: hidden;
     z-index: -1;
     /* margin-top: 50px; */
@@ -59,17 +80,17 @@ p {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 50px;
+    padding: 20px;
     z-index: 1;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .tour-search-form {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     padding: 10px;
     display: inline-block;
-    margin-top: 50px;
-    border-radius: 8px;
+    margin-top: 70px;
+    border-radius: 10px;
 }
 
 .slide.active {
@@ -78,7 +99,7 @@ p {
 }
 
 .tour-search-form h2 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: blue;
 }
  
@@ -593,7 +614,7 @@ p {
 .lo-par {
     padding: 10px;
     text-align: center;
-    color: black;
+    color: white;
 }
 .lo-par-ln {
     color: blue;
@@ -616,7 +637,6 @@ p {
     margin-left: 10px;
 }
 .parent5 {
-    color: white;
     padding-top: 20px;
 }
 .signup-bg {
@@ -725,10 +745,13 @@ textarea {
 .result-container {
     gap: 20px;
 }
+.results {
+    margin-top: 40px;
+}
 .noTours {
     text-align: center;
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 35px;
     font-weight: bold;
 }
 .flight-offer p {
@@ -947,12 +970,24 @@ textarea {
     margin-top: 30px;
     cursor: pointer;
 }
+
+
 .tour-inp2 {
     padding: 10px;
     border: 1px solid;
     border-radius: 10px;
-    width: 50%;
+    width: 70%;
     margin-top: 10px;
+    
+/*    
+input, selection {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    }
+    */
 }
 .tour-inp3 {
     padding: 10px;
@@ -991,7 +1026,7 @@ textarea {
     padding: 10px;
     border: 1px solid;
     border-radius: 10px;
-    width: 50%;
+    width: 70%;
     margin-top: 10px;
 }
 
@@ -1041,6 +1076,7 @@ textarea {
 /* BOOKING TOUR FORM STYLE */
 .booking-form {
     padding: 20px;
+    align-self: center;
 }
 .booking-form p {
     margin-top: 10px;
@@ -1162,6 +1198,20 @@ textarea {
         display: block;
         margin-left: 20px;
         margin-top: 40px;
+    }
+    .package1 {
+        margin: 0;
+        margin-top: 20px;
+    }
+    .image-gallery1 {
+        margin-top: 0;
+        height: 60dvh;
+    }
+    .tour-inp2 {
+        width: 100%;
+    }
+    .tourDetails-inp {
+        width: 100%;
     }
 
     /* signup */

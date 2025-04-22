@@ -82,7 +82,7 @@ function searchTourism() {
 
 
         if(!data.results || data.results.length === 0) {
-            resultList.innerHTML = `<li class="noTours">No tours available for this date<li>`;
+            resultList.innerHTML = `<li class="noTours">No tours available online for this date. For offline booking, Call/WhatsApp +2348067663986<li>`;
             return;
         }
 
@@ -135,8 +135,9 @@ function searchTourism() {
             <p><strong>Duration:</strong> ${tour.duration} hours</p>
             <p><strong>Description:</strong> ${tour.description}</p>
             <p><strong>Min Age:</strong> ${tour.age_limit}</p>
-            <p><strong>Available days:</strong> ${tour.availability_days.map(day => day.day_of_week).join(", ")}</p><br>
-           <center><a href="bookingtour.html?id=${tour.id}" class="book-now" '>Book Now</a></center>
+            <p><strong>Available days:</strong> ${tour.availability_days.map(day => day.day_of_week).join(", ")}</p>
+            <p><strong>Date:</strong> ${dateInput}</p><br>
+           <center><a href="bookingtour.html?id=${tour.id}&date=${encodeURIComponent(dateInput)}" class="book-now">Book Now</a></center>
             
         `
         resultList.appendChild(resultDiv)

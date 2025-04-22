@@ -8,61 +8,40 @@
 </head>
 <body>
 
-    <div class="header">
-        <div class="col-3 cont">
-            <div class="phone">
-                <h4>08067663986, <span>08071729330</span></h4>
+    <!-- Header of the page -->
+    <header>
+        <div class="container">
+            <div class="header2 navbar">
+                <div class="col-3">
+                    <div class="logo">
+                        <img class="logo1" src="/img/Allicomtravels_logo.jpeg" alt="logo" width="7%">
+                        <span class="allicom">Allicom Tourism
+                        <br><p style="font-size:12px;">Explore Nigeria! Explore Africa!!</P>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="menu">
+                        <ul class="nav-links">
+                            <li><a href="/index.html">HOME</a></li>
+                            <li><a href="https://www.allicomtravels.com/services "target="_blank">SERVICES</a></li>
+                            <li><a href="https://www.allicomtravels.com/contact "target="_blank">CONTACT US</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                 <!-- nav bar -->
+                 <img class="sidebar-menu" id="hamburger" src="/img/menu.png" alt="nav-toggle" width="8%" >
+                 <div class="hamburger">
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                 </div>
+             </div>
+    
             </div>
         </div>
-        <div class="col-3">
-            <div class="socials">
-                    <img class="facebook" src="/img/facebook (1).png" alt="facebook" width="5%">
-                
-                    <img class="facebook" src="/img/twitter (1).png" alt="facebook" width="5%">
-                
-                    <img class="facebook" src="/img/instagram (1).png" alt="facebook" width="5%">
-
-                    <img class="facebook" src="/img/social.png" alt="facebook" width="5%">
-
-                    <img class="facebook" src="/img/social (1).png" alt="facebook" width="5%">
-            
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="parent-header">
-                    <div class="col-3">
-                        <div class="logo">
-                            <img class="logo1" src="/img/Allicomtravels_logo.jpeg" alt="logo" width="8%">
-                            <span class="allicom">Allicom Tourism
-                            <br><p style="font-size:12px;">Explore Nigeria! Explore Africa!!</P>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="menu">
-                            <ul class="nav-links">
-                                <li><a href="#">HOME</a></li>
-                                <!-- <li><a href="#">VISA ASSISTANCE</a></li>
-                                <li><a href="#">STUDY ABROAD</a></li> -->
-                                <li><a href="#">SERVICES</a></li>
-                                <li><a href="#">CONTACT US</a></li>
-                                <!-- <li><a href="/signup.html">SIGN UP</a></li> -->
-                            </ul>
-                        </div>
-                        
-                    </div>
-                    <!-- nav bar -->
-                    <img class="sidebar-menu" id="hamburger" src="/img/menu.png" alt="nav-toggle" width="10%" >
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-        </div>
-    </div>
+    </header>
 
     <div class="tourinfo" id="tourDetails"> </div>
 
@@ -71,8 +50,6 @@
         <form id="bookingForm" class="booking-form">
             <p>Email:</p>
             <input id="email" class="tour-inp2" type="email" placeholder="Email" name="email">
-            <!-- <p>Tourism site (0 or 1):</p>
-            <input id="tourism-site" class="tour-inp2" type="number" placeholder="Tourism site (0 or 1)" name="tourism-site"> -->
             <p for="tourism-site">Tourism Site:</p>
             <select class="tour-inp2" id="tourism-site" name="tourism-site">
                 <option disabled selected> Select a tourism site</option>
@@ -88,17 +65,52 @@
             <p>Passport Expiration Date:</p>
             <input id="passport-exp-date" class="tour-inp2" type="date" placeholder="Middle Name" name="passport-exp-date">
             <div id="iamgeContainer">
-                <p>Passport Image:</p>
-                <input id="passport-img" class="tour-inp2" type="file" placeholder="" name="passport-img">
+            <p>Passport Image:</p>
+            <input id="passport-img" class="tour-inp2" type="file" placeholder="" name="passport-img">
             </div>
             <p>Passport Number:</p>
             <input id="passport-number" class="tour-inp2" type="number" placeholder="Passport Number" name="passport-number">
             <p>Phone Number:</p>
             <input id="phone-number" class="tour-inp2" type="tel" placeholder="Phone Number" name="phone-number">
             <br>
+            <button class="btn" id="previewBtn" type="button">Preview</button><br>
             <button class="btn" id="submit-btn">Submit</button>
         </form>
     </div>
+
+    <div  class="overlay"></div>
+    <div class="preview-section" id="previewSection" style="display: none;"></div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="download-parent column">
+                    <div class="col-3 linksss">
+                        <h5 style="margin-top:20px;">Quick Links</h5>
+                        <li style="font-size: 15px;"><a href="https://www.allicomtravels.com/evisa" target="_blank">e-Visa</a></li>
+                        <li style="font-size: 15px;"><a href="https://allicomtravels.com/visa" target="_blank">Visa Assistance</a></li>
+                        <li style="font-size: 15px;"><a href="https://allicomtravels.com/tour" target="_blank">Hots Selling Packages</a></li>
+                        <li style="font-size: 15px;"><a href="https://www.allicomtravels.com/about" target="_blank">About Us</a></li>
+                        <li style="font-size: 15px;"><a href="/login.html">Operatours Sign-in</a></li>
+                    </div>
+                    <div class="col-3 linksss2">
+                        <h5 style="margin-top:20px;">Get Support</h5>
+                        <p>Tel: +2348067663986, +2348071729330</p>
+                         <p>Email: hello@allicomtravels.com</p>
+                         <p>Folow us:
+                            <img class="facebook" src="/img/facebook (1).png" alt="" width="5%">
+                            <img class="facebook" src="/img/instagram (1).png" alt="" width="5%">
+                            <img class="facebook" src="/img/twitter (1).png" alt="" width="5%">
+                            <img class="facebook" src="/img/social.png" alt="" width="5%">
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center; padding-top:10px; padding-bottom:10px;">Copyright &copy; 2025 Allicom tourism | All right reserved.</p>
+            </footer>
     
     <script src="bookingtour.js" defer></script>
     

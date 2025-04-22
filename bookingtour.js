@@ -1,6 +1,97 @@
+// HAMBURGER
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", e => {
+    navLinks.classList.toggle("active");
+})
+
+//PREVIEW FUNCTION
+let tour = null
+document.getElementById("previewBtn").addEventListener("click", function(e) {
+    e.preventDefault()
+    const previewSection = document.getElementById("previewSection");
+
+    // FORM VALUE
+        const email = document.getElementById("email").value
+        const tourismSite = document.getElementById("tourism-site").value
+        const sex = document.getElementById("sex").value
+        const firstName = document.getElementById("first-name").value
+        const lastName = document.getElementById("last-name").value
+        const middleName = document.getElementById("middle-name").value
+        const passportExpDate = document.getElementById("passport-exp-date").value
+        // const passportImage = document.getElementById("passport-image").value
+        const passportNumber = document.getElementById("passport-number").value
+        const phoneNumber = document.getElementById("phone-number").value
+
+        const adults = parseInt(document.getElementById("adults").value || 0)
+        const children = parseInt(document.getElementById("children").value || 0)
+
+        // Price calculation
+        const adultPrice = tour.price * adults;
+        const childPrice = tour.price * 0.7 * children
+        const subTotal = adultPrice + childPrice
+        const vat = subTotal * 0.075
+        const total = subTotal + vat
+
+        // DISPLAY PREVIEW
+        previewSection.innerHTML = ` 
+            <h1 style="text-align: centre;">Preview</h1>
+                <p><strong>Title:</strong> ${tour.title}</p>
+                <p><strong>City:</strong> ${tour.city}</p>
+                <p><strong>Country:</strong> ${tour.country}</p>
+                <p><strong>Description:</strong> ${tour.description}</p>
+                <p><strong>Price:</strong> NGN ${tour.price}</p>
+                <p><strong>Age Limit:</strong> ${tour.age_limit}</p>
+                <p><strong>Duration:</strong> ${tour.duration} hours</p>
+                <p><strong>Available Days:</strong> ${tour.availability_days.map(day => day.day_of_week).join(', ')}</p>
+                <p><strong>Date:</strong> ${tourDate}</p>
+                <br>
+                <hr>
+                <h2>Price</h2>
+                <p><strong>Adults:</strong> ${adults}</p>
+                <p><strong>Children (s):</strong> ${children}</p>
+                <p><strong>Sub Total:</strong> NGN ${subTotal.toLocaleString()}</p>
+                <p><strong>Value Added Tax (7.5%):</strong> NGN ${vat.toLocaleString()}</p>
+                <p><strong>Total:</strong> NGN ${total.toLocaleString()}</p>
+               
+                <div id="priceBreakdown" style="margin-top: 10px;"></div>
+                <hr>
+
+                <h2>Your Information</h2>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Tourism Site:</strong> ${tourismSite}</p>
+                <p><strong>Sex:</strong> ${sex}</p>
+                <p><strong>First Name:</strong> ${firstName}</p>
+                <p><strong>Last Name:</strong> ${lastName}</p>
+                <p><strong>Middle Name:</strong> ${middleName}</p>
+                <p><strong>Paasport Expiration Date:</strong> ${passportExpDate}</p>
+                <p><strong>Passport Number:</strong> ${passportNumber}</p>
+                <p><strong>Phone Number:</strong> ${phoneNumber}</p>
+            `;
+            previewSection.style.display = "block";
+
+            const closePreviewBtn = document.createElement("button");
+            closePreviewBtn.textContent = "Close Preview";
+            closePreviewBtn.style.display = "block";
+            closePreviewBtn.style.marginTop = "10px";
+            closePreviewBtn.addEventListener("click", () => {
+              previewSection.style.display = "none";
+            });
+            previewSection.appendChild(closePreviewBtn);
+            const loadingOverlay = document.getElementById("overlay");
+
+            function showLoading(state) {
+                loadingOverlay.style.display = state ? "block" : "none";
+              }
+})
+
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const tourId = urlParams.get("id");
-console.log("Tour ID from url:", tourId)
+const tourDate = urlParams.get("date")
+console.log("Tour date from url:", tourDate)
 
 const tourDetails = document.getElementById("tourDetails")
 
@@ -17,31 +108,9 @@ const tourDetails = document.getElementById("tourDetails")
                 }
                 return response.json()
             })
-            .then(tour => {
-                console.log("Tour Details:", tour)
-
-                tourDetails.innerHTML =` 
-                <p><strong>Title:</strong> ${tour.title}</p>
-                <p><strong>City:</strong> ${tour.city}</p>
-                <p><strong>Country:</strong> ${tour.country}</p>
-                <p><strong>Description:</strong> ${tour.description}</p>
-                <p><strong>Price:</strong> NGN ${tour.price}</p>
-                <p><strong>Age Limit:</strong> ${tour.age_limit}</p>
-                <p><strong>Duration:</strong> ${tour.duration} hours</p>
-                <p><strong>Available Days:</strong> ${tour.availability_days.map(day => day.day_of_week).join(', ')}</p>
-
-                <br>
-                <hr>
-                <h2>Price</h2>
-                <p>Adult (s):</p> 
-                <input class="tourDetails-inp" type="number" id="adults" value="1" min="0" /><br>
-                <p>Child (ren):</p>
-                <input class="tourDetails-inp" type="number" id="children" value="0" min="0" /><br>
-
-                <button class="calculate" onclick="calculatePrice(${tour.price})">Calculate Price</button>
-
-                <div id="priceBreakdown" style="margin-top: 10px;"></div>
-            `;
+            .then(data => {
+                tour = data;
+                displayTourDetails(tour)
            
             })
             .catch (error => {
@@ -49,6 +118,35 @@ const tourDetails = document.getElementById("tourDetails")
                 tourDetails.innerHTML = "<p>Could not load tour details</p>"
             })
         }
+
+    // FUNCTION TO DISPLAY TOURS
+    function displayTourDetails(tour) {
+        const tourDetails = document.getElementById("tourDetails");
+        
+        tourDetails.innerHTML =` 
+        <p><strong>Title:</strong> ${tour.title}</p>
+        <p><strong>City:</strong> ${tour.city}</p>
+        <p><strong>Country:</strong> ${tour.country}</p>
+        <p><strong>Description:</strong> ${tour.description}</p>
+        <p><strong>Price:</strong> NGN ${tour.price}</p>
+        <p><strong>Age Limit:</strong> ${tour.age_limit}</p>
+        <p><strong>Duration:</strong> ${tour.duration} hours</p>
+        <p><strong>Available Days:</strong> ${tour.availability_days.map(day => day.day_of_week).join(', ')}</p>
+        <p><strong>Date:</strong> ${tourDate}</p>
+
+        <br>
+        <hr>
+        <h2>Price</h2>
+        <p>Adult (s):</p> 
+        <input class="tourDetails-inp" type="number" id="adults" value="1" min="0" /><br>
+        <p>Child (ren):</p>
+        <input class="tourDetails-inp" type="number" id="children" value="0" min="0" /><br>
+
+        <button class="calculate" onclick="calculatePrice(${tour.price})">Calculate Price</button>
+
+        <div id="priceBreakdown" style="margin-top: 10px;"></div>
+    `;
+    }
 
 
 // Function to calculate price
@@ -141,7 +239,7 @@ async function loadTourismSite () {
         }
 
         const data = await response.json();
-        console.log('API Response:', data);
+        // console.log('API Response:', data);
 
         const tourismSiteSelect = document.getElementById('tourism-site');
         tourismSiteSelect.innerHTML = '';
